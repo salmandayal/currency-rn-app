@@ -5,6 +5,13 @@
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
 
     /* Completeness */
-    "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
+    "skipLibCheck": true,                              /* Skip type checking all .d.ts files. */
+    "baseUrl": "./src",                          /* Base directory to resolve non-absolute module names. */
+    "paths": {                                /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
+      "assets/*": ["assets/*", "assets/*/index"],
+      "routes/*": ["routes/*", "routes/*/index"],
+      "screens/*": ["screens/*", "screens/*/index"],
+      "shared/*": ["shared/*", "shared/*/index"],
+    },                           
   }
 }

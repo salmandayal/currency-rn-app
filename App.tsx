@@ -8,20 +8,12 @@
  * @format
  */
 
-import React, {useEffect, type PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
-
-import {Colors, Header} from 'react-native/Libraries/NewAppScreen';
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import React, {useEffect} from 'react';
 import SplashScreen from 'react-native-splash-screen';
+import {PersistGate} from 'redux-persist/integration/react';
+import {Provider, useSelector} from 'react-redux';
+import {persistor, store} from './src/shared/store';
+import Routes from './src/routes/';
 
 const App = () => {
   useEffect(() => {
@@ -29,37 +21,12 @@ const App = () => {
   }, []);
 
   return (
-    <SafeAreaView>
-      <StatusBar barStyle={true ? 'light-content' : 'dark-content'} />
-      <ScrollView contentInsetAdjustmentBehavior="automatic">
-        <Header />
-        <View>
-          <Icon name="comments" size={30} color="#900" />
-          <Text>CHeck my</Text>
-          <Text style={{fontFamily: 'Lato-BlackItalic'}}>Font</Text>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <Routes />
+      </PersistGate>
+    </Provider>
   );
 };
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
 
 export default App;
