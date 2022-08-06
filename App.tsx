@@ -14,6 +14,9 @@ import {PersistGate} from 'redux-persist/integration/react';
 import {Provider, useSelector} from 'react-redux';
 import {persistor, store} from './src/shared/store';
 import Routes from './src/routes/';
+import {LogBox} from 'react-native';
+
+LogBox.ignoreLogs(['Require cycle:']);
 
 const App = () => {
   useEffect(() => {

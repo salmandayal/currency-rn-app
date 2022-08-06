@@ -14,8 +14,6 @@ const Routes = (props: Props) => {
 
   const Stack = createNativeStackNavigator();
 
-  console.log('User loading check:', user);
-
   return (
     <>
       <StatusBar
