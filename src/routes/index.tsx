@@ -1,33 +1,65 @@
-import {View, Text, StatusBar} from 'react-native';
-import React from 'react';
-import {THEME} from 'shared/theme';
+import {View, Text, StatusBar, Button} from 'react-native';
+import React, {useEffect} from 'react';
+import {appTheme, THEME} from 'shared/theme';
 import {useDispatch, useSelector} from 'react-redux';
 import {RootState} from 'shared/store';
-import {useEffect} from 'react';
-import {setUser} from 'shared/store/reducers/userReducer';
+import {NavigationContainer, useNavigation} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {getDataFetch} from 'shared/store/reducers/userReducer';
 
 type Props = {};
 
 const Routes = (props: Props) => {
-  let darkMode = true;
-  const {user} = useSelector((state: RootState) => state);
-  const dispatch = useDispatch();
-  console.log('Password dcheck', user.password);
+  const {user, settings} = useSelector((state: RootState) => state);
 
-  useEffect(() => {}, []);
+  const Stack = createNativeStackNavigator();
+
+  console.log('User loading check:', user);
+
   return (
     <>
       <StatusBar
-        barStyle={darkMode ? 'light-content' : 'dark-content'}
+        barStyle={settings.darkMode ? 'light-content' : 'dark-content'}
         backgroundColor={
-          darkMode ? THEME.COLORS.primaryDarkBackground : 'transparent'
+          settings.darkMode ? THEME.COLORS.primaryDarkBackground : 'transparent'
         }
       />
-      <View>
-        <Text>Routes</Text>
-      </View>
+      <NavigationContainer
+        // @ts-ignore
+        theme={appTheme(settings.darkMode)}>
+        <Stack.Navigator>
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="SecondScreen" component={HomeScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </>
   );
 };
+
+function HomeScreen() {
+  const navigation = useNavigation();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    // dispatch(getDataFetch());
+  }, [dispatch]);
+  return (
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <Text>Home Screen</Text>
+      <Button
+        title="Go to Second Screen"
+        onPress={() => dispatch<any>(getDataFetch())}
+      />
+    </View>
+  );
+}
+
+function SecondScreen() {
+  return (
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <Text>Second Screen</Text>
+    </View>
+  );
+}
 
 export default Routes;

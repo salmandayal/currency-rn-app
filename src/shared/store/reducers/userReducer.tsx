@@ -3,11 +3,22 @@ import {createSlice} from '@reduxjs/toolkit';
 export interface UserState {
   email: string;
   password: string;
+  data?: Array<Data>;
+  loading?: boolean;
+}
+
+export interface Data {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
 }
 
 const initialState: UserState = {
   email: '',
   password: '',
+  data: [],
+  loading: false,
 };
 
 export const userSlice = createSlice({
@@ -19,12 +30,25 @@ export const userSlice = createSlice({
       state.email = action.payload.email;
       state.password = action.payload.password;
     },
-    setUserEmail: (state, action: {type: string; payload: string}) => {
-      state.email = action.payload;
+    getDataFetch: state => {
+      state.loading = true;
+    },
+    getDataSuccess: (state, action) => {
+      state.data = action.payload;
+      state.loading = false;
+    },
+    getDataFailure: state => {
+      state.loading = true;
     },
   },
 });
 
-export const {resetUser, setUser, setUserEmail} = userSlice.actions;
+export const {
+  resetUser,
+  getDataFetch,
+  getDataSuccess,
+  getDataFailure,
+  setUser,
+} = userSlice.actions;
 
 export default userSlice.reducer;

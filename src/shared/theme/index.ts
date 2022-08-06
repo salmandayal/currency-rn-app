@@ -1,3 +1,4 @@
+import {store} from 'shared/store';
 import {RF} from './responsive';
 
 export const THEME = {
@@ -87,4 +88,15 @@ export const THEME = {
     SMALLBOX: RF(5),
     OVAL: RF(24),
   },
+};
+
+export const appTheme = (darkMode: boolean) => {
+  return {
+    // @ts-ignore
+    colors: {
+      background: darkMode
+        ? THEME.COLORS.primaryDarkBackground
+        : THEME.COLORS.primaryLightBackground,
+    },
+  };
 };
