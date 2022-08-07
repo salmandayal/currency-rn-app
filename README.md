@@ -16,14 +16,16 @@ A Test app made with React-Native 0.69
 - Make sure to have install JDK 11 for Android
 - Setting the API key to get currency rates
 
-#### `API_LAYER_KEY=****8`
+```
+API_LAYER_KEY=****8
+```
 
 ### Android steps
 
 - yarn install
 - npx react-native run-android
 
-### Ios steps
+### iOS steps
 
 - yarn install
 - npx pod-install
