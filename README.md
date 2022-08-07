@@ -1,6 +1,6 @@
 # React Native APP
 
-An Test app made with React-Native 0.69
+A Test app made with React-Native 0.69
 
 ## Main technologies used
 
@@ -9,7 +9,7 @@ An Test app made with React-Native 0.69
 3. StoryBook
 4. Styled Components
 5. Jest + Enzyme
-6. Navigation
+6. React Navigation
 
 ## Install and run
 
@@ -23,4 +23,5 @@ An Test app made with React-Native 0.69
 ### Ios steps
 
 - yarn install
+- npx pod-install
 - npx react-native run-ios
