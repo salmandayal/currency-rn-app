@@ -14,7 +14,7 @@ A Test app made with React-Native 0.69
 ## Install and run
 
 - Make sure to have install JDK 11 for Android
-- Setting the API key to get currency rates
+- Set the API key to get currency rates
 
 ```
 API_LAYER_KEY=****8
@@ -33,5 +33,16 @@ API_LAYER_KEY=****8
 
 ### To run the storybook
 
-- Change the value of LOAD_STORYBOOK to true in .env
+- Enable storybook in the app by setting LOAD_STORYBOOK in environmental file
+
+```
+LOAD_STORYBOOK=true
+```
+
 - yarn storybook
+
+#### For Troubleshoot story
+
+If Storybook UI keeps loading try using the following command
+
+#### `adb reverse tcp:7007 tcp:7007`
