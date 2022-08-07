@@ -14,6 +14,9 @@ A Test app made with React-Native 0.69
 ## Install and run
 
 - Make sure to have install JDK 11 for Android
+- Setting the API key to get currency rates
+
+#### `API_LAYER_KEY=****8`
 
 ### Android steps
 
@@ -25,3 +28,8 @@ A Test app made with React-Native 0.69
 - yarn install
 - npx pod-install
 - npx react-native run-ios
+
+### To run the storybook
+
+- Change the value of LOAD_STORYBOOK to true in .env
+- yarn storybook
