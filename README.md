@@ -17,7 +17,7 @@ A Test app made with React-Native 0.69
 - Set the API key to get currency rates
 
 ```
-API_LAYER_KEY=****8
+API_LAYER_KEY=****
 ```
 
 ### Android steps
@@ -41,7 +41,7 @@ LOAD_STORYBOOK=true
 
 - yarn storybook
 
-#### For Troubleshoot story
+### Storybook troubleshoot
 
 If Storybook UI keeps loading try using the following command
 

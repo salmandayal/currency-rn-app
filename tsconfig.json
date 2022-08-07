@@ -3,7 +3,10 @@
   "extends": "@tsconfig/react-native/tsconfig.json",     /* Recommended React Native TSConfig base */
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
-
+    "typeRoots": ["node_modules/@types"],
+    "types": [
+      "@types/styled-components-react-native"
+    ],
     /* Completeness */
     "skipLibCheck": true,                              /* Skip type checking all .d.ts files. */
     "baseUrl": "./src",                          /* Base directory to resolve non-absolute module names. */

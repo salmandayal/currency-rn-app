@@ -5,6 +5,7 @@ export interface UserState {
   password: string;
   data?: Array<Data>;
   loading?: boolean;
+  authenticated: boolean;
 }
 
 export interface Data {
@@ -19,6 +20,7 @@ const initialState: UserState = {
   password: '',
   data: [],
   loading: false,
+  authenticated: false,
 };
 
 export const userSlice = createSlice({
@@ -29,6 +31,7 @@ export const userSlice = createSlice({
     setUser: (state, action: {type: string; payload: UserState}) => {
       state.email = action.payload.email;
       state.password = action.payload.password;
+      state.authenticated = action.payload.authenticated;
     },
     getDataFetch: state => {
       state.loading = true;
