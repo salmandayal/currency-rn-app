@@ -1,0 +1,6 @@
+{
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "setupFilesAfterEnv": ["./init.ts"],
+    "testRegex": "\\.e2e\\.ts$"
+}

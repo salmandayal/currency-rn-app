@@ -5,3 +5,7 @@ export const reverseString = (str: string) => {
   }
   return newString;
 };
+
+export const sumOfTwoNumbers = (a: number, b: number) => {
+  return a + b;
+};
