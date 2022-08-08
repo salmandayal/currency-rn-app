@@ -19,7 +19,6 @@ const config = {
   transformIgnorePatterns: [
     'node_modules/(?!(@react-native|react-native|@react-navigation|@react-native-community|react-navigation))',
   ],
-  snapshotSerializers: ['enzyme-to-json/serializer'],
   // This is an environment variable that can be used to execute logic only in development
   collectCoverage: process.env.NODE_ENV !== 'production',
   coveragePathIgnorePatterns: ['/node_modules/', 'src'],
