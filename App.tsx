@@ -11,7 +11,7 @@
 import React, {useEffect} from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import {PersistGate} from 'redux-persist/integration/react';
-import {Provider, useSelector} from 'react-redux';
+import {Provider} from 'react-redux';
 import {persistor, store} from './src/shared/store';
 import Routes from './src/routes/';
 import {LogBox} from 'react-native';
