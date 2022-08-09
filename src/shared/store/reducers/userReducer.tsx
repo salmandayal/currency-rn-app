@@ -28,10 +28,10 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     resetUser: () => initialState,
-    setUser: (state, action: {type: string; payload: UserState}) => {
+    setUser: (state, action) => {
       state.email = action.payload.email;
       state.password = action.payload.password;
-      state.authenticated = action.payload.authenticated;
+      state.authenticated = true;
     },
     getDataFetch: state => {
       state.loading = true;

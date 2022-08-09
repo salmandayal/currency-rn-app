@@ -17,15 +17,12 @@ const Routes = (props: Props) => {
   return (
     <ThemeProvider theme={settings.theme}>
       <StatusBar
-        barStyle={settings.darkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={
-          settings.darkMode ? THEME.COLORS.primaryDarkBackground : 'transparent'
-        }
+        // @ts-ignore
+        barStyle={settings.theme.STATUS_BAR_STYLE}
+        backgroundColor={settings.theme.colors.PRIMARY_BACKGROUND_COLOR}
       />
       <SafeArea height="100%">
-        <NavigationContainer
-          // @ts-ignore
-          theme={appTheme(settings.darkMode)}>
+        <NavigationContainer>
           {user.authenticated ? <DashBoardStack /> : <AuthStack />}
         </NavigationContainer>
       </SafeArea>

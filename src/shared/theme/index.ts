@@ -1,8 +1,6 @@
-import {store} from 'shared/store';
-import {DefaultTheme} from 'styled-components/native';
 import {RF} from './responsive';
 
-export const THEME = {
+export const GLOBAL_THEME = {
   COLORS: {
     primaryDarkBackground: '#242E42',
     primaryLightBackground: '#F7F7F7',
@@ -79,8 +77,8 @@ export const appTheme = (darkMode: boolean) => {
     // @ts-ignore
     colors: {
       background: darkMode
-        ? THEME.COLORS.primaryDarkBackground
-        : THEME.COLORS.primaryLightBackground,
+        ? GLOBAL_THEME.COLORS.primaryDarkBackground
+        : GLOBAL_THEME.COLORS.primaryLightBackground,
     },
   };
 };
@@ -88,10 +86,10 @@ export const appTheme = (darkMode: boolean) => {
 export const blueTheme = {
   mode: 'blue',
   colors: {
-    PRIMARY_BACKGROUND_COLOR: '#3120E0',
-    SECONDARY_BACKGROUND_COLOR: '#3B9AE1',
-    PRIMARY_TEXT_COLOR: '#F0EABE',
-    PRIMARY_BUTTON_TEXT_COLOR: '#F0EABE',
+    PRIMARY_BACKGROUND_COLOR: '#3B9AE1',
+    SECONDARY_BACKGROUND_COLOR: '#fff',
+    PRIMARY_TEXT_COLOR: '#fff',
+    PRIMARY_BUTTON_TEXT_COLOR: '#3B9AE1',
   },
 
   STATUS_BAR_STYLE: 'light-content',
@@ -109,12 +107,12 @@ export const greenTheme = {
 export const orangeTheme = {
   mode: 'orange',
   colors: {
-    PRIMARY_BACKGROUND_COLOR: '#D1512D',
-    SECONDARY_BACKGROUND_COLOR: '#411530',
+    PRIMARY_BACKGROUND_COLOR: '#411530',
+    SECONDARY_BACKGROUND_COLOR: 'darkorange',
     PRIMARY_TEXT_COLOR: '#F5E8E4',
     PRIMARY_BUTTON_TEXT_COLOR: '#F5E8E4',
   },
-  STATUS_BAR_STYLE: 'dark-content',
+  STATUS_BAR_STYLE: 'light-content',
 };
 export const purpleTheme = {
   mode: 'purple',
@@ -127,4 +125,17 @@ export const purpleTheme = {
   STATUS_BAR_STYLE: 'dark-content',
 };
 
-export type AppTheme = typeof blueTheme;
+export type AppTheme = {
+  mode: string;
+  colors: {
+    PRIMARY_BACKGROUND_COLOR: string;
+    SECONDARY_BACKGROUND_COLOR: string;
+    PRIMARY_TEXT_COLOR: string;
+    PRIMARY_BUTTON_TEXT_COLOR: string;
+  };
+  font: {
+    size: string;
+    align: string;
+  };
+  STATUS_BAR_STYLE: string;
+};
